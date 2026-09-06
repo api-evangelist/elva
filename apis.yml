@@ -1,0 +1,59 @@
+name: Elva
+description: >-
+  API management platform for the agentic era: reads repos to build an API catalog, enforces per-audience contracts,
+  generates tests, and turns APIs into governed, hosted MCP servers for AI agents. Built by Theneo. Exposes a public
+  no-auth OpenAPI scoring REST API and an llms.txt.
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/elva-api-management-automatic-discovery-and-governance/refs/heads/main/apis.yml
+created: '2026-09-06'
+modified: '2026-09-06'
+specificationVersion: '0.21'
+tags:
+  - API Management
+  - MCP Server
+  - MCP Logs
+  - MCP Insights
+  - API Client
+  - API Contract
+  - API Governance
+  - API Discovery
+  - OpenAPI
+  - API Testing
+  - Developer Tools
+  - AI Agent Infrastructure
+apis:
+  - name: Spec Scoring API
+    description: >-
+      Public, no-auth REST API for scoring OpenAPI documents. GET /api/review/checks returns the full set of checks;
+      POST /api/review scores a submitted OpenAPI document with category scores, per-check breakdown, and an overall
+      grade.
+    humanURL: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
+    baseURL: https://api.getelva.ai
+    tags:
+      - API Management
+      - MCP Server
+      - MCP Logs
+      - MCP Insights
+      - API Client
+      - API Contract
+      - API Governance
+      - API Discovery
+      - OpenAPI
+      - API Testing
+      - Developer Tools
+      - AI Agent Infrastructure
+    properties:
+      - type: Documentation
+        url: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
+      - type: LLMsTxt
+        url: https://getelva.ai/llms.txt
+      - type: Documentation
+        url: https://docs.getelva.ai/
+maintainers:
+  - FN: Elva
+    url: https://getelva.ai
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 90
+  at: '2026-09-06T16:56:23.444Z'
