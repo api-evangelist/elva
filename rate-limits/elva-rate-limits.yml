@@ -1,0 +1,29 @@
+generated: '2026-09-07'
+method: searched
+source: https://getelva.ai/pricing
+limit_count: 3
+note: >-
+  No numeric rate limits or rate-limit response headers are published for the public
+  Spec Scoring API — a live 200 from POST /api/review on 2026-09-07 carried no
+  X-RateLimit-*/RateLimit-*/Retry-After headers. The published limits are the
+  per-plan MCP tool-call quotas, enforced by Elva's gateway ("rate and quota, per key
+  and per tool, retry storms contained" — https://getelva.ai/security), with exact
+  per-minute numbers configured per deployment rather than published.
+limits:
+  - scope: per-workspace (Free plan)
+    surface: hosted MCP servers
+    limit: 1000
+    window: month
+    unit: tool calls
+  - scope: per-workspace (Startup plan)
+    surface: hosted MCP servers
+    limit: 25000
+    window: month
+    unit: tool calls
+  - scope: per-workspace (Business plan)
+    surface: hosted MCP servers
+    limit: 250000
+    window: month
+    unit: tool calls
+response_headers: []
+exhaustion_status: null

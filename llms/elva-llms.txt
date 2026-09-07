@@ -1,0 +1,31 @@
+# Elva
+
+> Elva is the system that discovers every API in your codebase, understands and scores them, governs what each audience can access, and exposes them to developers, applications, and AI agents through documentation, SDKs, and hosted MCP servers. Elva reads source code directly, so no OpenAPI spec is required. Built by Theneo. Sometimes described as an API control plane for the agentic era.
+
+Elva is built by Theneo, an API documentation platform used by 20,000 companies.
+
+## Product
+
+- [API Catalog](https://getelva.ai/catalog.md): Automatic API discovery, organization, and scoring
+- [API Contracts](https://getelva.ai/contracts.md): Define, enforce, and publish contracts with field-level control
+- [MCP Management](https://getelva.ai/mcp.md): Generate, host, and govern MCP servers
+- [API Testing](https://getelva.ai/testing.md): Generated tests and chaos suites
+
+## Reference
+
+- [Pricing](https://getelva.ai/pricing.md): Plans, limits, and what each tier includes
+- [Enterprise](https://getelva.ai/enterprise.md): Unlimited scale, SSO/SCIM, on-prem, audit trail
+- [Security](https://getelva.ai/security.md): Request path, data handling, and posture
+- [Glossary](https://getelva.ai/glossary.md): Definitions: API contracts, drift, MCP servers and gateways, tool calls, AI readiness
+
+## Compare
+
+- [Elva vs Postman](https://getelva.ai/vs/postman.md): System of record vs request workspace
+- [Elva vs Swagger](https://getelva.ai/vs/swagger.md): Generated specs vs hand-maintained ones
+- [Elva vs Insomnia](https://getelva.ai/vs/insomnia.md): Governed catalog vs local client
+- [Elva vs Apidog](https://getelva.ai/vs/apidog.md): Code-derived contracts vs design-first specs
+
+## Optional
+
+- [About](https://getelva.ai/about.md): The team and the thesis behind Elva
+- [Blog](https://getelva.ai/blog.md): Engineering notes on APIs, contracts, and MCP

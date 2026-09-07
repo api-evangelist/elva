@@ -1,0 +1,40 @@
+generated: '2026-09-07'
+method: probed
+source: https://api.getelva.ai/.well-known/oauth-protected-resource
+name: Elva MCP
+provider: Elva (a product of Theneo)
+status: gated
+deployment:
+  mode: remote
+  endpoint: https://app.getelva.ai/mcp
+  auth: oauth
+  verified: probed
+note: >-
+  Elva's own platform declares an OAuth-protected MCP resource at https://app.getelva.ai/mcp
+  via RFC 9728 protected-resource metadata (served on both api.getelva.ai and app.getelva.ai,
+  probed 2026-09-07, HTTP 200), with an RFC 8414 authorization server at https://app.getelva.ai
+  supporting authorization_code + PKCE (S256) and dynamic client registration — the discovery
+  chain a Claude custom connector walks. An anonymous MCP initialize POST to the endpoint
+  returns HTTP 404 with an empty body, so the live tools/list schema requires an authenticated
+  OAuth session; no tool list is published anonymously and none is recorded here. Separately,
+  Elva's core product GENERATES per-customer hosted MCP servers (each customer deployment gets
+  its own runtime URL / public install page, optionally on a custom domain) — those are
+  customer surfaces, not an Elva-branded public server, and are not cataloged as endpoints.
+oauth:
+  authorization_server: https://app.getelva.ai
+  authorization_endpoint: https://app.getelva.ai/oauth/authorize
+  token_endpoint: https://app.getelva.ai/oauth/token
+  registration_endpoint: https://app.getelva.ai/oauth/register
+  grant_types: [authorization_code]
+  code_challenge_methods: [S256]
+evidence:
+  - url: https://api.getelva.ai/.well-known/oauth-protected-resource
+    http_status: 200
+    detail: '{"resource":"https://app.getelva.ai/mcp","authorization_servers":["https://app.getelva.ai"]}'
+  - url: https://app.getelva.ai/mcp
+    http_status: 404
+    detail: anonymous JSON-RPC initialize POST; empty body — schema introspection is auth-gated
+docs:
+  - https://docs.getelva.ai/agent-ready-with-mcp/hosted-mcp-servers
+  - https://docs.getelva.ai/agent-ready-with-mcp/mcp-authentication-and-oauth
+  - https://docs.getelva.ai/agent-ready-with-mcp/the-public-install-page

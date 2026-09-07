@@ -1,0 +1,40 @@
+generated: '2026-09-07'
+method: searched
+source: https://getelva.ai/security
+name: Elva security page (Theneo-held certifications)
+note: >-
+  Elva publishes a dedicated security page rather than a hosted trust-center portal.
+  It states plainly that Elva is a product of Theneo and that the certifications,
+  security contact, and DPA are issued to Theneo, covering the infrastructure Elva
+  runs on. Security pack (reports, certificates, pen-test summary) available on
+  request via hello@getelva.ai, under NDA.
+certifications:
+  - name: SOC 2 Type II
+    status: certified
+    holder: Theneo
+    detail: report under NDA
+  - name: ISO 27001
+    status: certified
+    holder: Theneo
+    detail: certificates on request
+  - name: ISO 27701
+    status: certified
+    holder: Theneo
+    detail: privacy management, certificates on request
+programs:
+  - name: GDPR
+    status: compliant
+    detail: DPA available, EU data residency on request
+  - name: Penetration testing
+    status: annual
+    detail: third-party, summary shared under NDA
+controls:
+  - Encryption TLS 1.3 in transit, AES-256 at rest, per-tenant isolation
+  - SSO / SAML and SCIM on Enterprise plans
+  - Configurable data residency (regional hosting, private cloud, on-prem)
+  - Five ordered checks on every MCP tool call (identity, scope, redaction, rate, audit), fail closed
+  - Request/response bodies not retained by default; PII redacted at the gateway
+  - Instant revocation of keys, agents, and servers; full audit log export (JSON, CSV, webhook)
+evidence:
+  - url: https://getelva.ai/security
+    http_status: 200

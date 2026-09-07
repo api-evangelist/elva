@@ -1,0 +1,24 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
+format: json-error-envelope
+note: >-
+  Errors are a single-field JSON envelope {"error": "<message>"} with
+  content-type application/json — not RFC 9457 problem+json. The 422 shape was
+  verified live on 2026-09-07 (POST /api/review with a non-spec body returned
+  HTTP 422 {"error":"Spec parsed but not valid OpenAPI"}).
+envelope:
+  field: error
+  type: string
+problems:
+  - status: 400
+    title: Request body missing or unreadable
+    detail: The request body is missing or could not be read as a spec.
+    operation: POST /api/review
+    remediation: Send the OpenAPI document as text/plain (raw YAML or JSON) or application/json (parsed object).
+  - status: 422
+    title: Not a valid OpenAPI document
+    detail: The body parsed, but it is not a valid OpenAPI document.
+    operation: POST /api/review
+    remediation: Submit a document with a top-level openapi/swagger version and paths.
+    example: '{"error":"Spec parsed but not valid OpenAPI"}'

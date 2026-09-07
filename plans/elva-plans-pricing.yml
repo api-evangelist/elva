@@ -1,0 +1,85 @@
+generated: '2026-09-07'
+method: searched
+source: https://getelva.ai/pricing
+plan_count: 4
+note: >-
+  Flat platform pricing, no per-seat or per-endpoint fees; unlimited members on every
+  plan. Page states "Last updated August 26, 2026". The public Spec Scoring API
+  (api.getelva.ai) is outside these plans — open to everyone with no account.
+plans:
+  - name: Free
+    price: 0
+    currency: USD
+    billing_period: forever
+    included:
+      repos: 1
+      endpoints: unlimited
+      hosted_mcp_servers: 1
+      mcp_tool_calls_per_month: 1000
+      rescan: manual
+    features:
+      - OpenAPI spec generation from code
+      - AI labeling and API scoring
+      - API testing and MCP Playground
+      - Auto changelog of API changes
+      - Community support
+  - name: Startup
+    price: 100
+    currency: USD
+    billing_period: month
+    included:
+      repos: 3
+      hosted_mcp_servers: 3
+      mcp_tool_calls_per_month: 25000
+      internal_api_contracts: 1
+      ai_fixes_per_month: 100
+      rescan: weekly
+      score_history: 30 days
+    features:
+      - Endpoint-level insights
+      - Consumption data and unused endpoint detection
+      - Changelog with breaking-change flags
+      - Auth gateway with managed keys
+      - Email support
+  - name: Business
+    price: 600
+    currency: USD
+    billing_period: month, billed annually
+    included:
+      repos: 10
+      hosted_mcp_servers: 20
+      mcp_tool_calls_per_month: 250000
+      contracts: 20
+      rescan: every commit
+      score_history: 1 year
+      mcp_log_retention: 30 days
+    features:
+      - All audiences (internal, partner, public, AI agent) contracts
+      - Full governance (block-publish policies, rulesets, unlimited stakeholders, Slack alerts, GitHub PR comments)
+      - Webhooks for contract and change events
+      - Contract deploys (spec, docs, MCP, SDK, Postman collection)
+      - Automated API testing (scheduled runs and chaos suites)
+      - Insights with score history and trends
+      - Public changelog page
+      - MCP insights and logs (per-agent, per-key)
+      - Per-tool auth scopes
+      - Priority support
+  - name: Enterprise
+    price: null
+    currency: USD
+    billing_period: custom
+    included:
+      repos: unlimited
+      contracts: unlimited
+      hosted_mcp_servers: unlimited
+      mcp_log_retention: custom
+    features:
+      - Approval workflows and contract audit trail
+      - Full MCP logs, custom retention, log export
+      - Custom domain for hosted MCP servers (mcp.yourcompany.com)
+      - SSO / SAML and SCIM
+      - Private cloud or on-prem
+      - Audit logs
+      - 99.9% SLA, security review, DPA
+      - Dedicated engineer
+    contact: hello@getelva.ai

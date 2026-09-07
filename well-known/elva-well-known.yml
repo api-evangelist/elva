@@ -1,0 +1,83 @@
+generated: '2026-09-07'
+method: probed
+source: live probes of getelva.ai, www.getelva.ai, api.getelva.ai, docs.getelva.ai, app.getelva.ai
+note: >-
+  Real hits on two hosts: api.getelva.ai and app.getelva.ai both serve RFC 8414 OAuth
+  authorization-server metadata (issuer https://app.getelva.ai, PKCE S256, dynamic client
+  registration) and RFC 9728 protected-resource metadata declaring the MCP resource
+  https://app.getelva.ai/mcp. Bodies are identical across the two hosts; saved once from
+  api.getelva.ai. getelva.ai returns genuine 404s on every path. docs.getelva.ai and
+  app.getelva.ai answer 200 with an SPA HTML shell for unknown /.well-known/* paths —
+  those 200s are recorded as misses (shell, not a document). api.getelva.ai returns a
+  Vite host-block 403 for paths its API router does not handle. No security.txt on any host.
+hosts:
+  - host: api.getelva.ai
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: elva-oauth-authorization-server.json
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: elva-oauth-protected-resource.json
+      - path: /.well-known/security.txt
+        status: 403
+        note: Vite preview host-block error page, not a document
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+  - host: app.getelva.ai
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: elva-oauth-authorization-server.json
+        note: identical body to the api.getelva.ai copy
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: elva-oauth-protected-resource.json
+        note: identical body to the api.getelva.ai copy
+      - path: /.well-known/security.txt
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+      - path: /.well-known/agent.json
+        status: 200
+        note: SPA HTML shell, not a document — treated as a miss
+  - host: getelva.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/mcp.json
+        status: 404
+  - host: www.getelva.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        note: every path 301-redirects to getelva.ai, which 404s
+  - host: docs.getelva.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: SPA HTML shell (Theneo docs renderer) for every /.well-known/* path — all misses

@@ -1,0 +1,58 @@
+generated: '2026-09-07'
+method: probed
+source: live well-known probes + https://getelva.ai/security
+conformance:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      RFC 8414 authorization-server metadata served at
+      https://api.getelva.ai/.well-known/oauth-authorization-server (HTTP 200, probed
+      2026-09-07): authorization_code grant, PKCE S256, token_endpoint_auth_methods
+      client_secret_post/none.
+  - id: rfc8414-authorization-server-metadata
+    conforms: true
+    evidence: https://api.getelva.ai/.well-known/oauth-authorization-server returns the RFC 8414 document (HTTP 200)
+  - id: rfc9728-protected-resource-metadata
+    conforms: true
+    evidence: >-
+      https://api.getelva.ai/.well-known/oauth-protected-resource (HTTP 200) declares
+      resource https://app.getelva.ai/mcp with its authorization server — the discovery
+      chain MCP clients use.
+  - id: oauth2-dynamic-client-registration
+    conforms: true
+    evidence: registration_endpoint https://app.getelva.ai/oauth/register declared in the RFC 8414 metadata
+  - id: pkce
+    conforms: true
+    evidence: code_challenge_methods_supported ["S256"] in the RFC 8414 metadata
+  - id: oidc
+    conforms: false
+    evidence: >-
+      /.well-known/openid-configuration is not served on any host (getelva.ai 404,
+      api.getelva.ai 403 host-block, probed 2026-09-07). The MCP runtime can RELAY OpenID
+      Connect to a customer's upstream IdP, but Elva publishes no OIDC discovery of its own.
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      Live error responses from api.getelva.ai/api/review are a bare {"error": "..."} JSON
+      envelope (HTTP 422 probed 2026-09-07), not application/problem+json.
+  - id: soc2-type2
+    conforms: true
+    evidence: >-
+      https://getelva.ai/security states SOC 2 Type II certified, held by parent company
+      Theneo, covering the infrastructure Elva runs on; report under NDA.
+  - id: iso27001
+    conforms: true
+    evidence: https://getelva.ai/security states ISO 27001 / 27701 certified, held by Theneo; certificates on request.
+  - id: gdpr
+    conforms: true
+    evidence: https://getelva.ai/security states GDPR compliant, DPA available, EU data residency on request.
+  - id: idempotency
+    conforms: false
+    evidence: >-
+      No idempotency mechanism is documented; the only public write-shaped operation
+      (POST /api/review) is a stateless scoring computation with no persisted side effects.
+note: >-
+  Domain-standard check: Elva's own public surface (spec scoring) has no sector standard to
+  declare; MCP/OAuth conformance above is the closest machine-verifiable signature. The SOC 2 /
+  ISO 27001 certifications are issued to Theneo, Elva's parent — the security page states this
+  explicitly and that the same entity name appears on the report.

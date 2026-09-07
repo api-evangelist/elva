@@ -4,9 +4,10 @@ description: >-
   generates tests, and turns APIs into governed, hosted MCP servers for AI agents. Built by Theneo. Exposes a public
   no-auth OpenAPI scoring REST API and an llms.txt.
 url: >-
-  https://raw.githubusercontent.com/api-evangelist/elva-api-management-automatic-discovery-and-governance/refs/heads/main/apis.yml
+  https://raw.githubusercontent.com/api-evangelist/elva/refs/heads/main/apis.yml
 created: '2026-09-06'
-modified: '2026-09-06'
+modified: '2026-09-07'
+image: https://getelva.ai/opengraph-image
 specificationVersion: '0.21'
 tags:
   - API Management
@@ -29,6 +30,7 @@ apis:
       grade.
     humanURL: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
     baseURL: https://api.getelva.ai
+    image: https://getelva.ai/opengraph-image
     tags:
       - API Management
       - MCP Server
@@ -45,15 +47,66 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
+      - type: APIReference
+        url: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
       - type: LLMsTxt
         url: https://getelva.ai/llms.txt
       - type: Documentation
         url: https://docs.getelva.ai/
+      - type: ErrorCatalog
+        url: errors/elva-problem-types.yml
 maintainers:
   - FN: Elva
     url: https://getelva.ai
-generated:
+    email: hello@getelva.ai
+x-generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 90
   at: '2026-09-06T16:56:23.444Z'
+common:
+- type: Website
+  url: https://getelva.ai
+- type: VulnerabilityDisclosure
+  url: security/elva-vulnerability-disclosure.yml
+- type: Security
+  url: security/elva-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/elva-domain-security.yml
+- type: TrustCenter
+  url: security/elva-trust-center.yml
+- type: Compliance
+  url: security/elva-trust-center.yml
+- type: Conformance
+  url: conformance/elva-conformance.yml
+- type: WellKnown
+  url: well-known/elva-well-known.yml
+- type: MCPServer
+  url: mcp/elva-mcp.yml
+- type: LLMsTxt
+  url: llms/elva-llms.txt
+- type: Authentication
+  url: authentication/elva-authentication.yml
+- type: Conventions
+  url: conventions/elva-conventions.yml
+- type: Plans
+  url: plans/elva-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/elva-rate-limits.yml
+- type: Webhooks
+  url: asyncapi/elva-webhooks.yml
+- type: Pricing
+  url: https://getelva.ai/pricing
+- type: Blog
+  url: https://getelva.ai/blog
+- type: GettingStarted
+  url: https://docs.getelva.ai/get-started/quickstart-repo-to-mcp
+- type: SignUp
+  url: https://getelva.ai/waitlist
+- type: Login
+  url: https://app.getelva.ai
+x-enrichment:
+  date: '2026-09-07'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v3

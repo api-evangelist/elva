@@ -1,0 +1,21 @@
+generated: '2026-09-07'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: docs.getelva.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  2 15:38:23 2026 GMT
+  hsts: null
+- host: api.getelva.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 22 12:50:26 2026 GMT
+  hsts: null
+domains:
+- domain: getelva.ai
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: none

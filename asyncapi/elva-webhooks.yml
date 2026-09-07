@@ -1,0 +1,26 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.getelva.ai/admin-and-management/mcp-webhooks
+name: Elva MCP webhooks
+note: >-
+  Elva documents an outbound webhook surface but publishes no AsyncAPI. MCP webhooks
+  push events from a workspace's hosted MCP servers to a customer-registered HTTPS
+  endpoint as JSON POST requests as activity occurs; the receiver acknowledges with a
+  2xx. Positioned for routing into Slack, PagerDuty, SIEMs and warehouses. The pricing
+  page (https://getelva.ai/pricing) additionally lists "Webhooks for contract and
+  change events" on the Business plan, and the security page lists webhook as a SIEM
+  export channel for the MCP audit log. Individual event type names and payload
+  schemas are not published in the public docs — they are configured in-app.
+delivery:
+  transport: HTTPS
+  method: POST
+  content_type: application/json
+  acknowledgement: 2xx from the receiving endpoint
+event_families:
+  - family: mcp-server-activity
+    detail: activity on hosted MCP servers (tool calls, agent behavior), per the MCP webhooks doc
+  - family: contract-and-change-events
+    detail: contract and API change events, per the Business plan feature list
+  - family: log-export
+    detail: audit-log export to SIEM via webhook, per https://getelva.ai/security
+availability: Business plan and above

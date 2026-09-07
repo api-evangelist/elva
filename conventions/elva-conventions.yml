@@ -1,0 +1,53 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.getelva.ai/quality-and-scoring/score-a-spec-via-api
+authentication:
+  style: none (public scoring endpoints); OAuth 2.0 + PKCE for the platform MCP resource
+  reference: authentication/elva-authentication.yml
+content_types:
+  request:
+    - text/plain (raw OpenAPI YAML or JSON, streamed as the body)
+    - application/json (parsed spec object)
+  response: application/json; charset=utf-8
+versioning:
+  style: none-visible
+  note: >-
+    Public paths are unversioned (/api/review, /api/review/checks). No versioning or
+    deprecation policy is published for the public API.
+error_envelope:
+  shape: '{"error": "<message>"}'
+  statuses: [400, 422]
+  reference: errors/elva-problem-types.yml
+idempotency:
+  coverage: na
+  note: >-
+    The public API has no state-mutating surface: POST /api/review is a stateless
+    scoring computation (submit a spec, receive grades) with nothing persisted and
+    no resource created, and GET /api/review/checks is a read. No Idempotency-Key
+    mechanism is documented, and none is needed — repeating either call is naturally
+    safe. na, not none: there is no write surface for a mechanism to cover.
+reversibility:
+  coverage: na
+  note: >-
+    No write surface — no operation creates, mutates, or deletes provider-side state,
+    so there is nothing to reverse. Scoring calls can simply be re-run.
+dry_run_mode:
+  coverage: na
+  note: No write surface; the scoring call is itself consequence-free.
+pagination:
+  style: none
+  note: GET /api/review/checks returns the full flat array in one response.
+request_tracing:
+  note: No request-id header documented; live responses carry an ETag but no trace id.
+rate_limit_signaling:
+  headers: []
+  note: >-
+    No X-RateLimit-*/RateLimit-*/Retry-After headers observed on live responses
+    (probed 2026-09-07) and none documented for the public scoring API.
+  reference: rate-limits/elva-rate-limits.yml
+scoring_semantics:
+  note: >-
+    Each check reports Pass/Partial/Fail scored 1.0/0.5/0.0 times its weight; category
+    percentages are weighted pass ratios; overall score is the category-weighted average
+    (Design 40, DeveloperExperience 35, AIReadiness 15, Security 10). Grades A >= 88,
+    B >= 76, C >= 64, D >= 50, else F.
