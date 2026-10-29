@@ -65,3 +65,115 @@
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
 API management platform for the agentic era: reads repos to build an API catalog, enforces per-audience contracts, generates tests, and turns APIs into governed, hosted MCP servers for AI agents. Built by Theneo. Exposes a public no-auth OpenAPI scoring REST API and an llms.txt.
+
+**Areas:** API Management · MCP Server · MCP Logs · MCP Insights · API Client · API Contract · API Governance · API Discovery · OpenAPI · API Testing · Developer Tools · AI Agent Infrastructure
+
+## Elva on APIs.io
+
+Everything profiled for Elva is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/elva/](https://apis.io/providers/elva/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Spec Scoring API](https://apis.io/apis/elva/spec-scoring-api/) — Public, no-auth REST API for scoring OpenAPI documents. GET /api/review/checks returns the full set of checks; POST /api/review scores a submitted OpenAPI…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Elva Webhooks](https://apis.io/asyncapis/elva/elva-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Elva MCP](https://apis.io/servers/elva/elva-mcp/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Elva Authentication](https://apis.io/security/elva/elva-authentication/)
+- [Elva Domain Security](https://apis.io/security/elva/elva-domain-security/)
+- [Elva Trust Center](https://apis.io/security/elva/elva-trust-center/)
+- [Elva Vulnerability Disclosure](https://apis.io/security/elva/elva-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Elva Plans Pricing](https://apis.io/plans/elva/elva-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Elva Rate Limits](https://apis.io/rate-limits/elva/elva-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://getelva.ai)
+- [Getting started](https://docs.getelva.ai/get-started/quickstart-repo-to-mcp)
+- [Pricing](https://getelva.ai/pricing)
+- [Sign up](https://getelva.ai/waitlist)
+- [Blog](https://getelva.ai/blog)
+
+## API Evangelist rating
+
+**Kin Score 50.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 71.1 |
+
+**Agent readiness 44.8** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 27.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/elva/](https://apis.io/providers/elva/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Elva: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/elva/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
